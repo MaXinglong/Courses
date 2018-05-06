@@ -7,15 +7,17 @@
 - GPUs accelerate computationally demanding sections of code (which we call **kernels**). Kernels are decomposed to run in parallel on multiple cores.
 - Separate memory spaces
 
-![1525624612095](C:\Users\nahum\Dropbox (Technion CS)\courses\courses-pub\Learn CUDA in an Afternoon\img\1525624612095.png)
+![1525624612095](.\img\1525624612095.png)
+
+
 
 - CUDA is an extension to C/C++ that allows programming GPUs.
 
-![1525624740521](C:\Users\nahum\Dropbox (Technion CS)\courses\courses-pub\Learn CUDA in an Afternoon\img\1525624740521.png)
+![1525624740521](.\img\1525624740521.png)
 
 
 
-![1525624772655](C:\Users\nahum\Dropbox (Technion CS)\courses\courses-pub\Learn CUDA in an Afternoon\img\1525624772655.png)
+![1525624772655](.\img\1525624772655.png)
 
 
 
@@ -121,7 +123,7 @@ int main()
 }
 ```
 
-![1525625721043](C:\Users\nahum\Dropbox (Technion CS)\courses\courses-pub\Learn CUDA in an Afternoon\img\1525625721043.png)
+![1525625721043](.\img\1525625721043.png)
 
 ##Memory Management
 
