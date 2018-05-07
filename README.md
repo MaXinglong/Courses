@@ -4,6 +4,7 @@ Lecture notes and solutions to various courses.
 ## In Progress
 - [CS229 Machine Learning](http://cs229.stanford.edu/)
 - [Tensor Calculus, Multilinear Algebra, and Differential Geometry](https://www.youtube.com/watch?v=7G4SqIboeig&list=PLtku678e9yj725K6hjLqKhJ854nTWWR5e)
+- [Learn CUDA in an Afternoon](http://www.epcc.ed.ac.uk/online-training/learnCUDA)
 
 ## Looks Interesting
 - [CS109 Data Science](http://cs109.github.io/2015/index.html), [latest material](https://github.com/cs109/2018-cs109b)
