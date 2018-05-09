@@ -1,5 +1,5 @@
-# Michael Collins NLP Lecture Notes
+# Michael Collins NLP
 
 http://www.cs.columbia.edu/%7Emcollins/notes-spring2013.html
 
-- [] [Language models](http://www.cs.columbia.edu/%7Emcollins/lm-spring2013.pdf)
+- [ ] [Language models](http://www.cs.columbia.edu/%7Emcollins/lm-spring2013.pdf)

@@ -17,7 +17,7 @@ $$
 where $n\geq 1$, $x_i \in \mathcal{V}$ for $1 \leq i \leq n-1$, and $x_n = STOP$ is a special symbol (that is not a member of $\mathcal{V}$).
 
 - $\mathcal{V}^{\dagger}$ is the set of all sentences with the vocabulary $\mathcal{V}$.
-- A **Language Model** is then $\mathcal{V}$ and a probability distribution $p(x_1,x_2,\dots,x_n)$:
+- A **Language Model** is $\mathcal{V}$ and a probability distribution $p(x_1,x_2,\dots,x_n)$:
   - For any $\langle x_1 \dots x_n \rangle \in \mathcal{V}^{\dagger}, p(x_1,\dots,x_n)\geq 0$
   - $\sum_{\langle x_1 \dots x_n \rangle \in \mathcal{V}^{\dagger}} p(x_1,\dots,x_n)=1$
 - Example (a very bad one): define $c(x_1, \dots, x_n)$ to be the number of times the sentence $x_1, \dots, x_n$ appears in the training corpus. We can define
@@ -128,4 +128,56 @@ $$
 - There are around $|\mathcal{V}|^3$ parameters in the model, which is a very large number.
 
 ### Maximum-Likelihood Estimates
+
+- Define $c(u,v,w)$ to be the number of times the trigram $(u,v,w)$ is seen in the data.
+- Define $c(u,v)$ to be the number of times the bigram $(u,v)$ is seen in the data.
+- For any $(w,u,v)$, we define
+
+$$
+q(w|u,v)=\frac{c(u,v,w)}{c(u,v)}
+$$
+
+- This way of estimating the parameters has some very serious problems. Recall that we have a very large number of parameters in our model. Because of this, many of our counts will be zero. Also, when the denominator is zero the estimate is not well defined.
+
+### Evaluating Language Models: Perplexity
+
+- How do we measure the quality of a language model?
+- One way is using *perplexity*.
+- Let $x^{(1)},x^{(2)},\dots,x^{(m)}$ be some test data sentences. Each sentence $x^{(i)}$ is a sequence of words $x_1^{(i)},\dots,x_{n_i}^{(i)}$.
+- As before, assume each sentence ends with STOP.
+- The test sentences are "held out".
+- For any test sentence, we can measure its probability $p(x^{(i)})$ under the language model.
+- We can then measure the quality of the model by the likelihood that it gives the test set:
+
+$$
+\prod_{i=1}^m p(x^{(i)})
+$$
+
+- The idea is that the higher the likelihood, the better the language model is at modeling unseen sentences.
+- Let $M=\sum_{i=1}^m n_i$.
+- The average log probability under the model is defined as:
+
+$$
+l=\frac{1}{M}\log_2\prod_{i=1}^Mp(x^{(i)})=\frac{1}{M}\sum_{i=1}^m\log_2p(x^{(i)})
+$$
+
+- The perplexity is then defined as
+
+$$
+2^{-l}
+$$
+
+- The smaller the perplexity, the better the model.
+- What's the intuition behind this measure? Suppose that we have a dumb model that always predicts $q(w|u,v)=\frac{1}{N}$. Then
+
+$$
+\begin{align}
+-l=\frac{1}{M}\log_2 \frac{1}{N}^M-l &= \frac{1}{M}\log_2 \frac{1}{N}^M \\
+&= log_2\frac{1}{N}
+\end{align}
+$$
+
+which means that the perplexity is equal to $N$. So with the dumb model the perplexity is equal to the vocabulary size. Perplexity can be thought of as the *effective* vocabulary size.
+
+- Note that if some $q(w|u,v)$ is equal to zero then the perplexity blows up.
 
